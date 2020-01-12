@@ -1,8 +1,12 @@
 package main
 
 //包的引入默认 从src定位的
-import "utls"
+import (
+	"fmt"
+	u "utls"
+)
 
 func main()  {
-	utls.ReturnHelloWorld()
+	u.ReturnHelloWorld()
+	fmt.Println("num =",u.Num1)
 }
