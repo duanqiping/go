@@ -9,31 +9,31 @@ import (
 //使用一个结构体管理队列
 type Queue struct {
 	MaxSize int
-	front int  //指向队列 首部
-	rear int  //指向队列 尾部
-	array [5]int // 数组=>模拟队列
+	front   int    //指向队列 首部
+	rear    int    //指向队列 尾部
+	array   [5]int // 数组=>模拟队列
 }
 
 //添加数据到队列
 func (queue *Queue) addQueue(val int) (err error) {
-	if queue.rear == queue.MaxSize - 1 {
+	if queue.rear == queue.MaxSize-1 {
 		return errors.New("queue full")
 	}
-	queue.rear ++ //指针后移
+	queue.rear++ //指针后移
 	queue.array[queue.rear] = val
 
 	return
 }
 
 //从队列中弹出数据
-func (queue *Queue) popQueue() (val int,err error) {
+func (queue *Queue) popQueue() (val int, err error) {
 	if queue.front == queue.rear {
-		return -1,errors.New("queue empty")
+		return -1, errors.New("queue empty")
 	}
-	queue.front ++
+	queue.front++
 	val = queue.array[queue.front]
 
-	return val,err
+	return val, err
 }
 
 //显示队列, 找到队首，然后到遍历到队尾
@@ -47,7 +47,7 @@ func (this *Queue) ShowQueue() {
 	fmt.Println()
 }
 
-func main()  {
+func main() {
 	queue := &Queue{
 		MaxSize: 5,
 		front:   -1,
@@ -89,12 +89,3 @@ func main()  {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
