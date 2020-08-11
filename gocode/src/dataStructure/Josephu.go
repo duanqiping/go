@@ -52,7 +52,7 @@ func PlayGame(first *Boy, startNo int, countNum int) {
 			break
 		}
 	}
-	fmt.Printf("小孩小孩编号为%d 出圈 \n", first.nextBoy)
+	fmt.Printf("最后一个小孩编号为%d 出圈 \n", first.num)
 
 }
 func AddBoy(num int) *Boy {
@@ -94,11 +94,10 @@ func ShowBoy(head *Boy)  {
 	}
 
 	for {
+		fmt.Printf("编号 = %d\n",temp.num)
 		if temp.nextBoy == head {
 			break
 		}
-
-		fmt.Printf("编号 = %d\n",temp.num)
 		temp = temp.nextBoy
 	}
 }
@@ -115,9 +114,9 @@ func ShowBoy(head *Boy)  {
 //2. 最后我们使用一个算法，按照要求，在环形链表中留下最后一个人
 func main()  {
 
-	head := AddBoy(5)
+	head := AddBoy(6)
 
 	ShowBoy(head)
 
-	PlayGame(head, 1, 3)
+	PlayGame(head, 2, 3)
 }
